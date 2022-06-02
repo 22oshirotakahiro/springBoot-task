@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ログイン画面</title>
+<link href="css/commons.css" rel="stylesheet">
+</head>
+<body class="login_body">
+  <div class="header">
+    <h1 class="site_logo">商品管理システム</h1>
+  </div>
+  
+  <div class="login_form">
+    <img src="./images/logo.png" class="login_logo">
+    <div th:if="${#strings.escapeXml(msg)}">
+      <span>${msg}</span>
+    </div>
+    <form action="menu" method="POST" th:object="login">
+      <fieldset>
+        <div class="cp_iptxt">
+          <input class="base_input" type="text" name="loginId" placeholder="ID">
+          <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
+<!--           <span th:if="${#fields.haserrors('loginId')}"></span> -->
+        </div>
+        <div>
+          <input class="base_input" type="password" name="password" placeholder="PASS">
+        </div>
+      </fieldset>
+      <button class="logout_btn" type="submit">ログイン</button>
+    </form>
+  </div>
+</body>
+</html>
